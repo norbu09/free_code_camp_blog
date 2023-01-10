@@ -30,8 +30,10 @@ mix ecto.migrate
 
 working application with authentication
 
-mix phx.gen.live Content Post posts title:string body:text published:boolean cover:string user_id:integer slug:string --web Admin
+mix phx.gen.live Content Post posts title:string body:text published:boolean cover:string slug:string --web Admin
 
 mix ecto.migrate
 
 iex -S mix phx.server
+
+add index + blog live_view
