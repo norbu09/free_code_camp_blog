@@ -68,6 +68,13 @@ defmodule BlogWeb.Router do
       on_mount: [{BlogWeb.UserAuth, :ensure_authenticated}] do
       live "/users/settings", UserSettingsLive, :edit
       live "/users/settings/confirm_email/:token", UserSettingsLive, :confirm_email
+
+      live "/admin/posts", Admin.PostLive.Index, :index
+      live "/admin/posts/new", Admin.PostLive.Index, :new
+      live "/admin/posts/:id/edit", Admin.PostLive.Index, :edit
+
+      live "/admin/posts/:id", Admin.PostLive.Show, :show
+      live "/admin/posts/:id/show/edit", Admin.PostLive.Show, :edit
     end
   end
 

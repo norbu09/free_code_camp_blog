@@ -1,0 +1,44 @@
+<.header>
+  Listing Posts
+  <:actions>
+    <.link patch={~p"/admin/posts/new"}>
+      <.button>New Post</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="posts" rows={@posts} row_click={&JS.navigate(~p"/admin/posts/#{&1}")}>
+  <:col :let={post} label="Title"><%= post.title %></:col>
+  <:col :let={post} label="Body"><%= post.body %></:col>
+  <:col :let={post} label="Published"><%= post.published %></:col>
+  <:col :let={post} label="Cover"><%= post.cover %></:col>
+  <:col :let={post} label="User"><%= post.user_id %></:col>
+  <:col :let={post} label="Slug"><%= post.slug %></:col>
+  <:action :let={post}>
+    <div class="sr-only">
+      <.link navigate={~p"/admin/posts/#{post}"}>Show</.link>
+    </div>
+    <.link patch={~p"/admin/posts/#{post}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={post}>
+    <.link phx-click={JS.push("delete", value: %{id: post.id})} data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>
+
+<.modal
+  :if={@live_action in [:new, :edit]}
+  id="post-modal"
+  show
+  on_cancel={JS.navigate(~p"/admin/posts")}
+>
+  <.live_component
+    module={BlogWeb.Admin.PostLive.FormComponent}
+    id={@post.id || :new}
+    title={@page_title}
+    action={@live_action}
+    post={@post}
+    navigate={~p"/admin/posts"}
+  />
+</.modal>
