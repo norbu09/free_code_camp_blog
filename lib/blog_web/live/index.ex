@@ -15,13 +15,12 @@ defmodule BlogWeb.IndexLive do
   @impl true
   def render(assigns) do
     ~H"""
-      <h1>Welcome</h1>
-      <h2>recent posts</h2>
-      <%= for post <- @posts do %>
-        <h3><a href={~p"/blog/#{post.id}"}><%= post.title %></a></h3>
-        <p><%= post.body %></p>
-      <% end %>
+    <h1>Welcome</h1>
+    <h2>recent posts</h2>
+    <%= for post <- @posts do %>
+      <h3><a href={~p"/blog/#{post.id}"}><%= post.title %></a></h3>
+      <p><%= post.body %></p>
+    <% end %>
     """
   end
 end
-

@@ -4,8 +4,22 @@ defmodule BlogWeb.Admin.PostLiveTest do
   import Phoenix.LiveViewTest
   import Blog.ContentFixtures
 
-  @create_attrs %{body: "some body", cover: "some cover", published: true, slug: "some slug", title: "some title", user_id: 42}
-  @update_attrs %{body: "some updated body", cover: "some updated cover", published: false, slug: "some updated slug", title: "some updated title", user_id: 43}
+  @create_attrs %{
+    body: "some body",
+    cover: "some cover",
+    published: true,
+    slug: "some slug",
+    title: "some title",
+    user_id: 42
+  }
+  @update_attrs %{
+    body: "some updated body",
+    cover: "some updated cover",
+    published: false,
+    slug: "some updated slug",
+    title: "some updated title",
+    user_id: 43
+  }
   @invalid_attrs %{body: nil, cover: nil, published: false, slug: nil, title: nil, user_id: nil}
 
   defp create_post(_) do

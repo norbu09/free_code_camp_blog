@@ -15,11 +15,9 @@ defmodule BlogWeb.PostLive do
   @impl true
   def render(assigns) do
     ~H"""
-      <h1>Blog</h1>
-        <h2><%= @post.title %></h2>
-        <p><%= @post.body %></p>
+    <h1>Blog</h1>
+    <h2><%= @post.title %></h2>
+    <p><%= @post.body %></p>
     """
   end
 end
-
-

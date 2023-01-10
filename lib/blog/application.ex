@@ -7,6 +7,8 @@ defmodule Blog.Application do
 
   @impl true
   def start(_type, _args) do
+    Blog.Release.migrate()
+
     children = [
       # Start the Telemetry supervisor
       BlogWeb.Telemetry,
