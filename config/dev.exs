@@ -2,7 +2,7 @@ import Config
 
 # Configure your database
 config :blog, Blog.Repo,
-  database: Path.expand("../blog_dev.db", Path.dirname(__ENV__.file)),
+  database: Path.expand("../db/blog_dev.db", Path.dirname(__ENV__.file)),
   pool_size: 5,
   stacktrace: true,
   show_sensitive_data_on_connection_error: true
@@ -16,7 +16,7 @@ config :blog, Blog.Repo,
 config :blog, BlogWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
-  http: [ip: {127, 0, 0, 1}, port: 4000],
+  http: [ip: {0, 0, 0, 0}, port: 4000],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
