@@ -17,7 +17,7 @@ the fact that we use 1.7.0-rc and most docs are for 1.6 or below.
 
 To get the new version run the following command in a terminal:
 
-    mix archive.install hex phx_new 1.7.0-rc.2 
+    mix archive.install hex phx_new 1.7.0-rc.1
 
 With that in place we can start generating the scaffold of the new project.
 Elixir has a very flexible build system called `mix`. We used it in the command
